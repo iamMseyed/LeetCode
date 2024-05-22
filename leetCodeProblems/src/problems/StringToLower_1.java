@@ -2,7 +2,7 @@ package problems;
 
 import java.util.Scanner;
 
-public class StringToLower {
+public class StringToLower_1 {
 
 	public static void main(String[] args) {
 		
