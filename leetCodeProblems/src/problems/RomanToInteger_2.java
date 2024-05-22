@@ -52,18 +52,21 @@ Constraints:
  */
 import java.util.Scanner;
 
-class Solution {
+class SolutionRomToInt {
     public int romanToInt(String rStr) {
         int integerTotal = 0;
         for (int i = 0; i < rStr.length() - 1; i++) {
             int valF = convertToValue(rStr.charAt(i));
             int valL = convertToValue(rStr.charAt(i + 1));
-
+//            MCMXCIV
             if (valF < valL) {
                 integerTotal -= valF;
             } else {
                 integerTotal += valF;
             }
+            System.err.println("valF:"+rStr.charAt(i));
+            System.err.println("valL:"+rStr.charAt(i+1));
+            System.err.println("intTot:"+integerTotal);
         }
 
         integerTotal += convertToValue(rStr.charAt(rStr.length() - 1));
@@ -93,7 +96,7 @@ class Solution {
     }
 }
 
-public class RomanToInteger {
+public class RomanToInteger_2 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter any roman value to find its integer equivalent: ");
@@ -102,7 +105,7 @@ public class RomanToInteger {
             char c = roman.charAt(i);
             if (!(c == 'I' || c == 'V' || c == 'X' || c == 'L' || c == 'C' || c == 'D' || c == 'M')) {
                 System.err.println("""
-                        Acceptable values :
+                        Acceptable values (combination or single value from any of the below):
                         I
                         V
                         X
@@ -115,7 +118,7 @@ public class RomanToInteger {
                 System.exit(0);
             }
         }
-        int ans = new Solution().romanToInt(roman);
+        int ans = new SolutionRomToInt().romanToInt(roman);
         System.out.println(roman + " value in int is: " + ans);
         s.close();
     }
